@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-button {
+/* button {
   background-color: rgb(58, 83, 83);
   border: none;
   padding: 9px 22px;
@@ -12,8 +12,16 @@ button {
 }
 button:hover {
   background-color: rgb(8, 233, 195);
+} */
+.pink {
+  color: rgb(142, 43, 155);
 }
-
+.bold {
+  font-weight: bold;
+}
+.blue {
+  color: blue;
+}
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
