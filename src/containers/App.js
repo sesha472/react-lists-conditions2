@@ -2,12 +2,26 @@
 
 
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import classes from'./App.css';
+import  './App.css';
 
 //   60)' bellow code is for flexibale lists ' persons
 
 import Persons from '../components/Persons/Persons.js';
+const Buttonstyle=styled.button`
+
+  background-color: rgb(58, 83, 83);
+  border: none;
+  padding: 9px 22px;
+  border-radius: 10px;
+  box-shadow: 2px 3px 8px pink;
+  outline: none;
+  border: 4px solid green;
+  &:hover {
+    background-color: rgb(8, 233, 195);
+  }
+`;
 class App extends Component {
   state = {
     persons:[
@@ -97,10 +111,10 @@ class App extends Component {
       <h2 >thi is h2</h2>
       <p className={classes.join(' ')}>this is paragraph</p>
       {/* <h2 className={classes.join(' ')}>thi is h2</h2> */}
-      <button className="button"  onClick={this.togglehandler}>show items</button>
+      <Buttonstyle  onClick={this.togglehandler}>show items</Buttonstyle>
    <br /> 
    <br />
-      <button className="button"   onClick={()=>this.switchNameHandler("saib")}>switch names</button>
+      <Buttonstyle    onClick={()=>this.switchNameHandler("saib")}>switch names</Buttonstyle>
 
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  
