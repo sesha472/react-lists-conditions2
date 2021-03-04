@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 
-import './App.css';
+import classes from'./App.css';
 
 //   60)' bellow code is for flexibale lists ' persons
 
@@ -21,10 +21,10 @@ class App extends Component {
   }
   switchNameHandler=(newname)=>{
     this.setState({persons:[
-      {name:newname,age:25},
-      {name:"saiB",age:26},
-      {name:"saiC",age:28},
-      {name:"saiD",age:27}
+      { id:"1",name:newname,age:25},
+      {id: "2",name:"saiB",age:26},
+      {id: "3",name:"saiC",age:28},
+      {id: "4",name:"saiD",age:27}
     ],
     otherstate:"state prop2"
   })
@@ -62,16 +62,7 @@ class App extends Component {
   };
 
   render() {
-    const bstyle={
-      backgroundColor: "rgb(90, 153, 80)",
-      border: "none",
-      padding:"9px 22px",
-      borderRadius: "10px",
-      boxShadow: "2px 3px 8px pink",
-      outline: "none",
-      border: "3px solid black",
-     
-    }
+    
 
     let person = <h1>clith the button to show items</h1>;
     if((this.state.showitems)){
@@ -79,14 +70,12 @@ class App extends Component {
       <div>
         <Persons 
          persons={this.state.persons}
-         clicked={this.deletobj}
-         changed={this.newNamechange}
+         clickedelet={this.deletobj}
+         changeevent={this.newNamechange}
          />
             </div>);
 
-    bstyle.backgroundColor= 'hotpink'; 
-    bstyle.padding="10px 30px"
-      
+  
     }
 
     const classes= [];
@@ -108,10 +97,10 @@ class App extends Component {
       <h2 >thi is h2</h2>
       <p className={classes.join(' ')}>this is paragraph</p>
       {/* <h2 className={classes.join(' ')}>thi is h2</h2> */}
-      <button style={bstyle}  onClick={this.togglehandler}>show items</button>
+      <button className="button"  onClick={this.togglehandler}>show items</button>
    <br /> 
    <br />
-      {/* <button style={bstyle} onClick={()=>this.switchNameHandler("saib")}>switch names</button> */}
+      <button className="button"   onClick={()=>this.switchNameHandler("saib")}>switch names</button>
 
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  

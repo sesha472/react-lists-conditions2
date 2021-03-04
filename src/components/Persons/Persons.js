@@ -2,14 +2,14 @@ import React from 'react';
 
 import Person from './Person/Person.js';
 
-const Persons=(props)=> props.persons.map((person,index) => {
+const Persons=(props)=> props.persons.map((item,index) => {
 
         return <Person 
-         click1={()=>props.clicked(index)}
-        name={person.name} 
-        age={person.age}  
-        key={person.id}
-        changed={(event)=>props.changed(event, person.id)}
+         click1={()=>props.clickedelet(index)}
+        name={item.name} 
+        age={item.age}  
+        key={item.id}
+        changed={(event)=>props.changeevent(event, item.id)}
        /> ;
     });
  

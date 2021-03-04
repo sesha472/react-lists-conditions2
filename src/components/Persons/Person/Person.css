@@ -9,7 +9,7 @@
 }
 
 input {
-  width: 240px;
+  max-width: 70%;
   height: 30px;
   background-color: rgb(67, 74, 88);
   border: none;
@@ -18,4 +18,11 @@ input {
   border-radius: 10px;
   font-size: 20px;
   color: white;
+}
+
+@media (min-width: 700px) {
+  .Person {
+    background-color: red;
+    width: 400px;
+  }
 }
