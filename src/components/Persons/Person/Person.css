@@ -23,6 +23,6 @@ input {
 @media (min-width: 700px) {
   .Person {
     background-color: red;
-    width: 400px;
+    width: 450px;
   }
 }

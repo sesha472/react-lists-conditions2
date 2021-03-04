@@ -2,26 +2,12 @@
 
 
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
-import  './App.css';
+import classes from './App.css';
 
 //   60)' bellow code is for flexibale lists ' persons
 
 import Persons from '../components/Persons/Persons.js';
-const Buttonstyle=styled.button`
-
-  background-color: rgb(58, 83, 83);
-  border: none;
-  padding: 9px 22px;
-  border-radius: 10px;
-  box-shadow: 2px 3px 8px pink;
-  outline: none;
-  border: 4px solid green;
-  &:hover {
-    background-color: rgb(8, 233, 195);
-  }
-`;
 class App extends Component {
   state = {
     persons:[
@@ -75,8 +61,10 @@ class App extends Component {
     this.setState({ showitems:!this.state.showitems})
   };
 
+
+
   render() {
-    
+    let clickedbutton=[classes.Button];
 
     let person = <h1>clith the button to show items</h1>;
     if((this.state.showitems)){
@@ -88,33 +76,40 @@ class App extends Component {
          changeevent={this.newNamechange}
          />
             </div>);
-
+      
+         clickedbutton.push(classes.Red);
+         
   
     }
+    // let clickedbutton=["classes.Button"];
+    // if((this.state.showitems)){
+    //   clickedbutton.push(".Red");
+    // }
 
-    const classes= [];
+
+    const assignedClasses= [];
     if(this.state.persons.length<=3){
-    classes.push("pink");
+      assignedClasses.push(classes.pink);
     } 
     if(this.state.persons.length<=2){
-      classes.push("bold");
+      assignedClasses.push(classes.bold);
       } 
     if(this.state.persons.length<= 1){
-      classes.push("blue");
+      assignedClasses.push(classes.blue);
     }
   
 
 
     return (
-      <div className="App">
+      <div className={classes.App}>
       <h1>welcome to this cource </h1>
       <h2 >thi is h2</h2>
-      <p className={classes.join(' ')}>this is paragraph</p>
+      <p className={assignedClasses.join(' ')}>this is paragraph</p>
       {/* <h2 className={classes.join(' ')}>thi is h2</h2> */}
-      <Buttonstyle  onClick={this.togglehandler}>show items</Buttonstyle>
+      <button className={clickedbutton.join(' ')}  onClick={this.togglehandler}>show items</button>
    <br /> 
    <br />
-      <Buttonstyle    onClick={()=>this.switchNameHandler("saib")}>switch names</Buttonstyle>
+      <button className={classes.Button}   onClick={()=>this.switchNameHandler("saib")}>switch names</button>
 
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  

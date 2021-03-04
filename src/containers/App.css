@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-/* .button {
+.App .Button {
   background-color: rgb(58, 83, 83);
   border: none;
   padding: 9px 22px;
@@ -9,17 +9,25 @@
   box-shadow: 2px 3px 8px pink;
   outline: none;
   border: 4px solid green;
-} */
-/* .button:hover {
-  background-color: rgb(8, 233, 195);
-} */
-.pink {
-  color: rgb(142, 43, 155);
 }
-.bold {
+.App .Button:hover {
+  background-color: rgb(8, 233, 195);
+}
+
+.App .Button.Red {
+  background-color: red;
+}
+.App .Button.Red:hover {
+  background-color: rgb(173, 33, 120);
+}
+
+.App .pink {
+  color: rgb(224, 13, 207);
+}
+.App .bold {
   font-weight: bold;
 }
-.blue {
+.App .blue {
   color: blue;
 }
 /* .App-logo {
