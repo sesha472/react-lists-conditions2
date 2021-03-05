@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 
 import classes from './App.css';
+import Cockpit from '../components/Cockpit/Cockpit.js'
 
 //   60)' bellow code is for flexibale lists ' persons
 
@@ -64,20 +65,18 @@ class App extends Component {
 
 
   render() {
-    let clickedbutton=[classes.Button];
 
     let person = <h1>clith the button to show items</h1>;
     if((this.state.showitems)){
-      person = (
-      <div>
+      person = 
+
         <Persons 
-         persons={this.state.persons}
-         clickedelet={this.deletobj}
+         personslist={this.state.persons}
+         deletself={this.deletobj}
          changeevent={this.newNamechange}
          />
-            </div>);
+            ;
       
-         clickedbutton.push(classes.Red);
          
   
     }
@@ -87,30 +86,17 @@ class App extends Component {
     // }
 
 
-    const assignedClasses= [];
-    if(this.state.persons.length<=3){
-      assignedClasses.push(classes.pink);
-    } 
-    if(this.state.persons.length<=2){
-      assignedClasses.push(classes.bold);
-      } 
-    if(this.state.persons.length<= 1){
-      assignedClasses.push(classes.blue);
-    }
-  
+    
 
 
     return (
       <div className={classes.App}>
-      <h1>welcome to this cource </h1>
-      <h2 >thi is h2</h2>
-      <p className={assignedClasses.join(' ')}>this is paragraph</p>
-      {/* <h2 className={classes.join(' ')}>thi is h2</h2> */}
-      <button className={clickedbutton.join(' ')}  onClick={this.togglehandler}>show items</button>
-   <br /> 
-   <br />
-      <button className={classes.Button}   onClick={()=>this.switchNameHandler("saib")}>switch names</button>
-
+    <Cockpit  
+    showitemslist={this.state.showitems}
+    personslistcockpit={this.state.persons}
+    togleclicked={this.togglehandler}
+    switchnamecokpit={()=>this.switchNameHandler("saib")}
+    />
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  
      

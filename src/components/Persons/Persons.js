@@ -2,10 +2,10 @@ import React from 'react';
 
 import Person from './Person/Person.js';
 
-const Persons=(props)=> props.persons.map((item,index) => {
+const Persons=(props)=> props.personslist.map((item,index) => {
 
         return <Person 
-         click1={()=>props.clickedelet(index)}
+         click1={()=>props.deletself(index)}
         name={item.name} 
         age={item.age}  
         key={item.id}

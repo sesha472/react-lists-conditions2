@@ -1,14 +1,14 @@
 
 import React from 'react';
-import one from './Person.css';
+import classes from './Person.css';
 
 const Person=(props)=>{
 
     return (
-         <div className={one.Person}>
+         <div className={classes.Person}>
         <h1 onClick={props.click1}> name={props.name} and age={props.age}  </h1>
         <h2>{props.children}</h2>
-        <input type='text'  onChange={props.changed} />
+        <input type='text'  onChange={props.changed} value={props.name}/>
     </div>);
 };
 
