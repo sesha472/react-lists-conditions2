@@ -10,6 +10,13 @@ import Cockpit from '../components/Cockpit/Cockpit.js'
 
 import Persons from '../components/Persons/Persons.js';
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log("appjs.constructor")
+  }
+
+
   state = {
     persons:[
       { id: "1",name:"sai1", age:21},
@@ -20,6 +27,29 @@ class App extends Component {
     otherstate:"state prop1",
     showitems:false
   }
+
+static getDerivedStateFromProps(props,state){
+  console.log("app.js getderived state");
+  return state;
+}
+
+
+componentDidMount(){
+  console.log("appa.js component didmount ");
+}
+
+
+shouldComponentUpdate(nextprops,nextstate){
+  console.log("app.js shouldcomponetupdate")
+  return true;
+}
+
+componentDidUpdate(prevprops,prevstate,snap){
+  console.log("app.js componetdidupdate");
+ 
+}
+
+
   switchNameHandler=(newname)=>{
     this.setState({persons:[
       { id:"1",name:newname,age:25},
@@ -27,7 +57,7 @@ class App extends Component {
       {id: "3",name:"saiC",age:28},
       {id: "4",name:"saiD",age:27}
     ],
-    otherstate:"state prop2"
+    otherstate:"state prop2",
   })
   };
 
@@ -45,18 +75,12 @@ class App extends Component {
   const personcopy = {
     ...this.state.persons[personindex]
   }
-
   //or we use const person=Object.assign({},this.state.persons[personindex]);
   personcopy.name=event.target.value;
-
  const personscopy=[...this.state.persons];
-
  personscopy[personindex]=personcopy;
-
   this.setState({persons:personscopy });
 };
-
-
 
   togglehandler=()=>{
     this.setState({ showitems:!this.state.showitems})
@@ -64,42 +88,32 @@ class App extends Component {
 
 
 
+
   render() {
+    console.log("app.js render ");
 
     let person = <h1>clith the button to show items</h1>;
     if((this.state.showitems)){
       person = 
-
         <Persons 
          personslist={this.state.persons}
          deletself={this.deletobj}
          changeevent={this.newNamechange}
-         />
-            ;
-      
-         
-  
+         />;
     }
-    // let clickedbutton=["classes.Button"];
-    // if((this.state.showitems)){
-    //   clickedbutton.push(".Red");
-    // }
-
-
     
-
-
     return (
       <div className={classes.App}>
-    <Cockpit  
+    <Cockpit 
+    title={this.props.apptitle} 
     showitemslist={this.state.showitems}
     personslistcockpit={this.state.persons}
     togleclicked={this.togglehandler}
     switchnamecokpit={()=>this.switchNameHandler("saib")}
     />
+
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  
-     
       </div>
     );
 

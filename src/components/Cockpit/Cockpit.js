@@ -23,7 +23,7 @@ const Cockpit=(props)=>{
   
 
     return(<div className={classes.Cockpit}>
-          <h1>welcome to this cource </h1>
+          <h1>{props.title} </h1>
       <h2 >thi is h2</h2>
       <p className={assignedClasses.join(' ')}>this is paragraph</p>
       {/* <h2 className={classes.join(' ')}>thi is h2</h2> */}
