@@ -5,18 +5,18 @@ import classes from './Cockpit.css';
 const Cockpit=(props)=>{
    
 useEffect(()=>{
-  console.log("cokcpit.js useeffect");
-
-  setTimeout(() => {
+  console.log("cokcpit.js cloud useeffect");
+  const timer =setTimeout(() => {
     alert("save data to cloud");
   }, 1000);
   return ()=>{
-    console.log("cockpit.js: cleanup workin useeffet");
+    clearTimeout(timer);
+    console.log("cockpit.js: cleanup workin 1st useeffet");
   };
 }, []);
 
 useEffect(()=>{
-  console.log("cockpiy.js: cloud 2nd data");
+  console.log("cockpiy.js: cloud 2nd useeffect");
   return()=>{
     console.log("cockpit.js: cleanuupwork in 2nd useeffect")
   };

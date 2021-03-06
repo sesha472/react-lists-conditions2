@@ -26,7 +26,7 @@ class App extends Component {
     ],
     otherstate:"state prop1",
     showitems:false,
-    cockpitshow:true
+    cockpitshow:true,
   }
 
 static getDerivedStateFromProps(props,state){
@@ -47,14 +47,14 @@ shouldComponentUpdate(nextprops,nextstate){
 
 
 
-getSnapshotBeforeUpdate(prevprops,prevstate){
-  console.log("app.js getsnapShotbeforeupdate");
-  return {msg:"app snapchat"}
-}
+// getSnapshotBeforeUpdate(prevprops,prevstate){
+//   console.log("app.js getsnapShotbeforeupdate");
+//   return {msg:"app snapchat"}
+// }
 
 componentDidUpdate(prevprops,prevstate,snapa){
   console.log("app.js componetdidupdate");
-  console.log(snapa);
+  // console.log(snapa);
 }
 
   switchNameHandler=(newname)=>{
@@ -112,7 +112,7 @@ componentDidUpdate(prevprops,prevstate,snapa){
     
     return (
       <div className={classes.App}>
-        <button onClick={()=>{this.setState({cockpitshow:!this.state.cockpitshow})}} >removecokpit</button>
+        <button onClick={()=>{this.setState({cockpitshow:false})}} >removecokpit</button>
     
     {this.state.cockpitshow?(<Cockpit 
     title={this.props.apptitle} 
@@ -122,11 +122,13 @@ componentDidUpdate(prevprops,prevstate,snapa){
     switchnamecokpit={()=>this.switchNameHandler("saib")}
     />
     
+
     
-    ):null}
+    ): null}
 
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  
+
       </div>
     );
 
