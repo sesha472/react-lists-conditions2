@@ -5,10 +5,10 @@ import React, { Component } from 'react';
 
 import classes from './App.css';
 import Cockpit from '../components/Cockpit/Cockpit.js'
-
-//   60)' bellow code is for flexibale lists ' persons
-
 import Persons from '../components/Persons/Persons.js';
+import withClass from '../hoc/withClass.js';
+import Aux from '../hoc/Aux1.js';
+
 class App extends Component {
 
   constructor(props){
@@ -105,19 +105,21 @@ componentDidUpdate(prevprops,prevstate,snapa){
       person = 
         <Persons 
          personslist={this.state.persons}
-         deletself={this.deletobj}
+         clicked={this.deletobj}
          changeevent={this.newNamechange}
          />;
     }
     
     return (
-      <div className={classes.App}>
+      // <WithClass classes={classes.App}>
+      <Aux>
         <button onClick={()=>{this.setState({cockpitshow:false})}} >removecokpit</button>
     
-    {this.state.cockpitshow?(<Cockpit 
+    {this.state.cockpitshow?(
+    <Cockpit 
     title={this.props.apptitle} 
     showitemslist={this.state.showitems}
-    personslistcockpit={this.state.persons}
+    personsLength={this.state.persons.length}
     togleclicked={this.togglehandler}
     switchnamecokpit={()=>this.switchNameHandler("saib")}
     />
@@ -128,15 +130,15 @@ componentDidUpdate(prevprops,prevstate,snapa){
 
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  
-
-      </div>
+     </Aux>
+      // </WithClass>
     );
 
 
    
   }
 }
-export default App;
+export default withClass(App,classes.App);
 
  // if we dont use jsx the syntax will will be look like this wit out jsx
   // return React.createElement('div' ,{className:'App'}, React.createElement('h1',{className:"one"},"namsthey react") ,React.createElement('h3',null,'good morning'),React.createElement('h4',null,'good morning'));

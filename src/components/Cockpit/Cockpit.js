@@ -29,13 +29,13 @@ useEffect(()=>{
     btnClass=classes.Red;
     }
 
-    if(props.personslistcockpit.length<=3){
+    if(props.personsLength<=3){
       assignedClasses.push(classes.pink);
     } 
-    if(props.personslistcockpit.length<=2){
+    if(props.personsLength<=2){
       assignedClasses.push(classes.bold);
       } 
-    if(props.personslistcockpit.length<= 1){
+    if(props.personsLength<= 1){
       assignedClasses.push(classes.blue);
     }
   
@@ -55,4 +55,4 @@ useEffect(()=>{
 
 }
 
-export default Cockpit;
+export default React.memo(Cockpit);
