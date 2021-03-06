@@ -7,7 +7,7 @@ class Person extends Component{
 render(){
 
 
-console.log("person rendering");
+console.log("person render");
 
         return (
          <div className={classes.Person}>

@@ -25,7 +25,8 @@ class App extends Component {
       {id: "4",name:"sai4", age:24}
     ],
     otherstate:"state prop1",
-    showitems:false
+    showitems:false,
+    cockpitshow:true
   }
 
 static getDerivedStateFromProps(props,state){
@@ -44,11 +45,17 @@ shouldComponentUpdate(nextprops,nextstate){
   return true;
 }
 
-componentDidUpdate(prevprops,prevstate,snap){
-  console.log("app.js componetdidupdate");
- 
+
+
+getSnapshotBeforeUpdate(prevprops,prevstate){
+  console.log("app.js getsnapShotbeforeupdate");
+  return {msg:"app snapchat"}
 }
 
+componentDidUpdate(prevprops,prevstate,snapa){
+  console.log("app.js componetdidupdate");
+  console.log(snapa);
+}
 
   switchNameHandler=(newname)=>{
     this.setState({persons:[
@@ -92,7 +99,8 @@ componentDidUpdate(prevprops,prevstate,snap){
   render() {
     console.log("app.js render ");
 
-    let person = <h1>clith the button to show items</h1>;
+    let person = null;
+    // let person = <h1>clith the button to show items</h1>;
     if((this.state.showitems)){
       person = 
         <Persons 
@@ -104,13 +112,18 @@ componentDidUpdate(prevprops,prevstate,snap){
     
     return (
       <div className={classes.App}>
-    <Cockpit 
+        <button onClick={()=>{this.setState({cockpitshow:!this.state.cockpitshow})}} >removecokpit</button>
+    
+    {this.state.cockpitshow?(<Cockpit 
     title={this.props.apptitle} 
     showitemslist={this.state.showitems}
     personslistcockpit={this.state.persons}
     togleclicked={this.togglehandler}
     switchnamecokpit={()=>this.switchNameHandler("saib")}
     />
+    
+    
+    ):null}
 
      {/* if the person  is not null showing the dats in if confition sttatement */}
      {person}  

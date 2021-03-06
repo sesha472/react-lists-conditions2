@@ -23,9 +23,13 @@ class Persons extends Component {
           console.log("persons.js componetdidupdate");
           console.log(snap);
       }
+      componentWillUnmount(){
+          console.log("ps.js componetwillunmount")
+      }
+
 
 render(){
-    console.log("persons.js rendering ");
+    console.log("persons.js render ");
 
 return this.props.personslist.map((item,index) => {
         return <Person 
